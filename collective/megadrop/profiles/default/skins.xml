@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        >
+
+ <object name="collective_megadrop"
+         meta_type="Filesystem Directory View"
+         directory="collective.megadrop:skins/collective_megadrop"/>
+ <skin-path name="*">
+  <layer insert-after="custom"
+         name="collective_megadrop"/>
+ </skin-path>
+
+</object>

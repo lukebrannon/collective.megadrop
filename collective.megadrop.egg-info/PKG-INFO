@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: collective.megadrop
+Version: 1.0
+Summary: Integrates mega dropdown menu with Plone global navigation.
+Home-page: http://svn.plone.org/svn/collective/
+Author: Luke Brannon
+Author-email: luke@laplone.org
+License: GPL
+Description: Introduction
+        ============
+        
+        collective.megadrop integrates a dropdown menu that presents primary and secondary navigation
+        in the Plone global navigation.
+        
+        Changelog
+        =========
+        
+        1.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python

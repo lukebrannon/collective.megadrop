@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.megadrop">
+
+  <!-- 'collective.megadrop' Zope 3 browser layer -->
+  <interface
+      interface=".interfaces.IMegaDropInstalled"
+      name="MegaDrop"
+      />
+
+    <!-- Zope 3 browser resources -->
+    <!-- The cutomized personalpreferences -->
+    <browser:viewlet
+        name="plone.global_sections"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        layer=".interfaces.IMegaDropInstalled"
+        class=".viewlets.MegaDropGlobalSectionsViewlet"
+        permission="zope2.View"
+        />
+
+</configure>

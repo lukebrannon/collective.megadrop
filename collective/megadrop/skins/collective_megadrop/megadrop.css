@@ -1,0 +1,18 @@
+/* megadrop css */
+
+.megahide {
+display: none;
+}
+
+#portal-globalnav h2 {
+font-size: 90%;
+display: inline;
+}
+
+.globalNav_ul {
+display: block;
+}
+
+#portal-globalnav ul li {
+display: block;
+}

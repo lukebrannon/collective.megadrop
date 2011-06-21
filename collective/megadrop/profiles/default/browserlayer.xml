@@ -1,0 +1,6 @@
+<layers>
+ <layer
+     name="MegaDrop"
+     interface="collective.megadrop.browser.interfaces.IMegaDropInstalled"
+     />
+</layers>

@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.megadrop">
+
+    <includeDependencies package="." />
+
+    <include package=".browser" />
+
+    <include file="skins.zcml" />
+
+    <genericsetup:registerProfile
+      name="default"
+      title="collective.megadrop"
+      directory="profiles/default"
+      description="Installs the collective.megadrop package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.megadrop uninstaller"
+        description="Uninstalls the collective.megadrop package"
+        directory="profiles/uninstall"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>

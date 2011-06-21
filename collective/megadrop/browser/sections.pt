@@ -1,0 +1,32 @@
+<tal:sections tal:define="portal_tabs view/portal_tabs"
+     tal:condition="portal_tabs"
+     i18n:domain="plone">
+    <h2 class="hiddenStructure" i18n:translate="heading_sections">Navigation</h2>
+
+    <ul id="portal-globalnav"
+        tal:define="selected_tab python:view.selected_portal_tab">
+        <tal:tabs tal:repeat="tab portal_tabs">
+            <li tal:define="tid tab/id"
+                tal:attributes="id string:portaltab-${tid};
+                    class python:selected_tab==tid and 'selected' or 'plain'">
+                    <h2><a class="mdtab" id="#" href=""
+                        tal:content="tab/name"
+                        tal:attributes="
+                        title tab/description|nothing;
+                        id string:megadrop-${tid}">
+                            Tab Name
+                    </a></h2>
+
+                <div id="#" class="#" tal:attributes="class string:megadrop-${tid} megahide">
+                    <tal:outer tal:define="site view/getPortalRoot; tabObj python:site[tid]" tal:repeat="items python:view.sectionQuery(tabObj)">
+
+                         <span tal:replace="structure items" />
+
+
+                    </tal:outer>
+                </div>
+            </li>
+
+        </tal:tabs>
+    </ul>
+</tal:sections>
