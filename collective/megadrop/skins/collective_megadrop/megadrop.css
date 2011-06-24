@@ -9,10 +9,33 @@ font-size: 90%;
 display: inline;
 }
 
+#portal-globalnav h3 {
+font-size: 90%;
+display: inline;
+}
+
 .globalNav_ul {
 display: block;
 }
 
 #portal-globalnav ul li {
 display: block;
+}
+
+.globalNav_ul a {
+position: relative;
+left: 10px;
+}
+
+
+/*******************
+* megadrop positioning
+*******************/
+
+#portal-globalnav {
+position: ;
+}
+
+#portal-columns {
+position: ;
 }

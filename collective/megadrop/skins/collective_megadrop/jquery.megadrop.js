@@ -1,3 +1,4 @@
+/*
 $(document).ready(function() {
 
     $(".mdtab").hover(
@@ -21,4 +22,16 @@ $(document).ready(function() {
         }
     );
 
+});
+*/
+
+$(document).ready(function()
+{
+  //hide the all of the element with class msg_body
+  
+  $("#portal-globalnav a").click(
+        function(){
+        var className = "." + $(this).attr('id');
+  $(className).slideToggle(600);
+  });
 });

@@ -13,11 +13,11 @@
                         tal:content="tab/name"
                         tal:attributes="
                         title tab/description|nothing;
-                        id string:megadrop-${tid}">
+                        id string:megadrop-${tid}" onclick="return false">
                             Tab Name
                     </a></h2>
 
-                <div id="#" class="#" tal:attributes="class string:megadrop-${tid} megahide">
+                <div id="#" class="#" tal:attributes="class string:megadrop-${tid} megahide megadrop">
                     
                     <h3 tal:condition="not: context/plone_context_state/is_portal_root"><a href="#" tal:attributes="href context/portal_url">Home</a></h3>
                     
