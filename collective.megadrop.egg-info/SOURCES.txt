@@ -13,5 +13,4 @@ collective/megadrop/__init__.py
 collective/megadrop/tests.py
 collective/megadrop/browser/__init__.py
 collective/megadrop/browser/interfaces.py
-collective/megadrop/browser/megadrop_tools.py
 collective/megadrop/browser/viewlets.py

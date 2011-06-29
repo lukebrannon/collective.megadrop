@@ -1,16 +1,38 @@
 /* megadrop css */
 
+
+#portal-globalnav ul li a {
+    background-color: #205C90;
+    color: white;
+    line-height: 1.5em;
+    padding: 5px 10px;
+    border: none;
+
+}
+
+.mdtab {}
+
 .megahide {
 display: none;
 }
 
 .megadrop {
 position: relative;
-width:940px;
-clear:both;}
+width:960px;
+clear:both;
+
+}
 
 #portal-globalnav ul {
-float:left
+clear: both;
+background-color: #205C90;
+border-bottom-right-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-webkit-border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+-moz-border-radius-bottomleft: 10px;
+-webkit-border-bottom-left-radius: 10px;
+padding: 10px 0;
 }
 
 #portal-globalnav h2 {
@@ -42,7 +64,7 @@ left: 10px;
 *******************/
 
 #portal-globalnav {
-position: ;
+    height: 46px;
 }
 
 #portal-columns {
