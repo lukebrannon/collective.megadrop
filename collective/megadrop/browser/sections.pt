@@ -18,9 +18,7 @@
                     </a></h2>
 
                 <div id="#" class="#" tal:attributes="class string:megadrop-${tid} megahide megadrop">
-                    
-                    <h3 tal:condition="not: context/plone_context_state/is_portal_root"><a href="#" tal:attributes="href context/portal_url">Home</a></h3>
-                    
+
                     <tal:outer tal:define="site view/getPortalRoot; tabObj python:site[tid]" tal:repeat="items python:view.sectionQuery(tabObj)">
 
                          <span tal:replace="structure items" />

@@ -4,6 +4,15 @@
 display: none;
 }
 
+.megadrop {
+position: relative;
+width:940px;
+clear:both;}
+
+#portal-globalnav ul {
+float:left
+}
+
 #portal-globalnav h2 {
 font-size: 90%;
 display: inline;
