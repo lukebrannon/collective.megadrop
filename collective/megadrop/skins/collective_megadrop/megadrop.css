@@ -18,7 +18,7 @@ display: none;
 
 .megadrop {
 float: left;
-position: relative;
+position: absolute;
 width:960px;
 clear:both;
 
