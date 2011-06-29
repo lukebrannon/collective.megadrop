@@ -17,6 +17,7 @@ display: none;
 }
 
 .megadrop {
+float: left;
 position: relative;
 width:960px;
 clear:both;
