@@ -12,6 +12,7 @@
                     <h2><a class="mdtab" id="#" href=""
                         tal:content="tab/name"
                         tal:attributes="
+                        href tab/url;
                         title tab/description|nothing;
                         id string:megadrop-${tid}" onclick="return false">
                             Tab Name

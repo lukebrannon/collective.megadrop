@@ -31,14 +31,14 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             theNav = []
             sectionIterator = 1
             if items:
-                theNav.append('<ul class="globalNav_ul">')
+                theNav.append('<ul class="globalNav_lvl1">')
                 for item in items:
                     if item['is_folderish']:
                         #establish brain of folder contents
                         children = tabObj[item['id']].getFolderContents()
                         theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
                         theNav.append(theLine)
-                        theNav.append('<ul>')
+                        theNav.append('<ul class="globalNav_lvl2">')
                         for child in children:
                             theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
                             theNav.append(theLine)
