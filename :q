@@ -1,0 +1,11 @@
+updated js for dropdown provided by Sagarika Gogikari <gsagarika2012@gmail.com>
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   collective/megadrop/skins/collective_megadrop/jquery.megadrop.js
+#	renamed:    collective/megadrop/skins/collective_megadrop/jquery.megadrop.js -> collective/megadrop/skins/collective_megadrop/jquery.megadrop.js~
+#
