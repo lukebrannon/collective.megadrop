@@ -1,28 +1,5 @@
 /*
-$(document).ready(function() {
-
-    $(".mdtab").hover(
-        function(){
-        var className = "." + $(this).attr('id');
-        $(className).toggleClass("megahide");
-        }
-    );
-
-    $(".mdtab").focus(
-        function(){
-        var className = "." + $(this).attr('id');
-        $(className).toggleClass("megahide");
-        }
-    );
-
-    $(".mdtab").blur(
-        function(){
-        var className = "." + $(this).attr('id');
-        $(className).toggleClass("megahide");
-        }
-    );
-
-});
+Sagarika Gogikari <gsagarika2012@gmail.com>
 */
 
 $(document).ready(function()
@@ -31,7 +8,7 @@ $(document).ready(function()
   
   $("#portal-globalnav a").click(
         function(){
-        var className = "." + $(this).attr('id');
-  $(className).slideToggle(600);
+    $("#portal-globalnav a").parent('h2').next('div').hide();
+    $(this).parent().next('div').slideDown(600);
   });
 });
