@@ -21,8 +21,24 @@ float: left;
 position: absolute;
 width:960px;
 clear:both;
-
 }
+
+.megadiv1 {
+float:left;
+}
+
+.megadiv2 {
+float:left;
+}
+
+.megadiv3 {
+float:left;
+}
+
+.megadiv4 {
+float:left;
+}
+
 
 #portal-globalnav ul {
 clear: both;
