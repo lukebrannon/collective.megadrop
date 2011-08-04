@@ -2,6 +2,9 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 
+#for navigation fix
+from Products.CMFCore.utils import getToolByName
+
 from Products.CMFCore.interfaces import IFolderish
 from zope.app.component.hooks import getSite
 
@@ -27,8 +30,15 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             #return brain of tabObj contents
             results = tabObj.getFolderContents()
             items = []
+
+            #taken from navigation.py
+            portal_props = getToolByName(self, 'portal_properties')
+            navtree_properties = getattr(portal_props, 'navtree_properties')
+            blacklist = navtree_properties.getProperty('metaTypesNotToList', ())
+
             for result in results:
-                if not result['exclude_from_nav']:
+                #if result.portal_type in view_action_types:
+                if result.portal_type not in blacklist:
                     items.append(result)
 
             #set theNav list
