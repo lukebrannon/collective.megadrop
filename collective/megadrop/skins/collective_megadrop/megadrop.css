@@ -1,5 +1,9 @@
 /* megadrop css */
 
+#visual-portal-wrapper {
+/* width: 60em; */
+width:960px;
+margin: 0 auto; }
 
 #portal-globalnav ul li a {
     background-color: #205C90;
@@ -7,7 +11,6 @@
     line-height: 1.5em;
     padding: 5px 10px;
     border: none;
-
 }
 
 .mdtab {}
@@ -19,29 +22,9 @@ display: none;
 .megadrop {
 float: left;
 position: absolute;
-width:960px;
+/* width:73.3em; */
+width:938px;
 clear:both;
-}
-
-.megadiv1 {
-float:left;
-}
-
-.megadiv2 {
-float:left;
-}
-
-.megadiv3 {
-float:left;
-}
-
-.megadiv4 {
-float:left;
-}
-
-
-#portal-globalnav ul {
-clear: both;
 background-color: #205C90;
 border-bottom-right-radius: 10px;
 -moz-border-radius-bottomright: 10px;
@@ -50,6 +33,30 @@ border-bottom-left-radius: 10px;
 -moz-border-radius-bottomleft: 10px;
 -webkit-border-bottom-left-radius: 10px;
 padding: 10px 0;
+}
+
+.globalNav_lvl2 {
+padding-left: .5em;
+}
+
+.megadiv1 {
+float:left;
+width:25%;
+}
+
+.megadiv2 {
+float:left;
+width:25%;
+}
+
+.megadiv3 {
+float:left;
+width:25%;
+}
+
+.megadiv4 {
+float:left;
+width:25%;
 }
 
 #portal-globalnav h2 {
