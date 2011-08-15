@@ -43,7 +43,7 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
 
             #set theNav list
             theNav = []
-            sectionIterator = 1
+            #sectionIterator = 1
             if items:
                 itemsNum = len(items)
                 if itemsNum <= 4:
@@ -66,16 +66,16 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                     if itemsNum >= 4:
                         megadiv4.append(items[3])
                 else:
-                    for item in items [:(divFill - 1)]:
+                    for item in items [:divFill]:
                         megadiv1.append(item)
 
-                    for item in items [divFill:((divFill -1) + divFill)]:
+                    for item in items [divFill:divFill*2]:
                         megadiv2.append(item)
 
-                    for item in items [(divFill*2):((divFill -1) + (divFill*2))]:
+                    for item in items [divFill*2:divFill*3]:
                         megadiv3.append(item)
 
-                    for item in items [(divFill*3):((divFill -1) + (divFill*3))]:
+                    for item in items [divFill*3:divFill*4]:
                         megadiv4.append(item)
 
                 if megadiv1:
@@ -99,7 +99,7 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                             theNav.append(theLine)
 
 
-                        sectionIterator+=1
+                        #sectionIterator+=1
                     theNav.append('</ul>')
                     theNav.append('</div>')
 
@@ -124,7 +124,7 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                             theNav.append(theLine)
 
 
-                        sectionIterator+=1
+                        #sectionIterator+=1
                     theNav.append('</ul>')
                     theNav.append('</div>')
 
@@ -149,7 +149,7 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                             theNav.append(theLine)
 
 
-                        sectionIterator+=1
+                        #sectionIterator+=1
                     theNav.append('</ul>')
                     theNav.append('</div>')
 
@@ -174,7 +174,7 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                             theNav.append(theLine)
 
 
-                        sectionIterator+=1
+                        #sectionIterator+=1
                     theNav.append('</ul>')
                     theNav.append('</div>')
 

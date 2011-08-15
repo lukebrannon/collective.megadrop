@@ -4,6 +4,17 @@ Introduction
 collective.megadrop integrates a dropdown menu that presents primary and secondary navigation
 in the Plone global navigation.
 
+1.0dev3
+
+Updates
+
+    * Fixed column slicing to include all results
+
+Known Issues
+
+    * Template needs conditional to prevent drop down of non-folderish tab types.
+    * CSS needs tweaking for sub-page display highlighting.
+
 1.0dev2
 
 Updates
