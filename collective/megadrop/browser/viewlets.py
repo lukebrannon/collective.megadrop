@@ -9,7 +9,8 @@ from Products.CMFCore.interfaces import IFolderish
 from zope.app.component.hooks import getSite
 
 class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
-    """A custom version of the global navigation viewlet
+    """A custom version of the global navigation viewlet that reveals two levels of structure
+       in a single drop down drawer.
     """
 
     def render(self):
@@ -31,7 +32,7 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             results = tabObj.getFolderContents()
             items = []
 
-            #taken from navigation.py
+            #borrowed from navigation.py
             portal_props = getToolByName(self, 'portal_properties')
             navtree_properties = getattr(portal_props, 'navtree_properties')
             blacklist = navtree_properties.getProperty('metaTypesNotToList', ())
@@ -46,141 +47,86 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             #sectionIterator = 1
             if items:
                 itemsNum = len(items)
+                divFill = 0
                 if itemsNum <= 4:
                     divFill = 1
                 else:
-                    divFill = itemsNum / 4 + 1
+                    itemsRdr = itemsNum%4
+                    if itemsRdr:
+                        if itemsRdr == 1:
+                            divFill0 = itemsNum / 4 + 1
+                            divFill1 = divFill2 = itemsNum / 4
+                        if itemsRdr == 2:
+                            divFill0= divFill1 = itemsNum / 4 + 1
+                            divFill2 = itemsNum / 4
+                        if itemsRdr == 3:
+                            divFill0 = divFill1 = divFill2 = itemsNum / 4 + 1
 
+                        #note: if remainder: divFill = itemsNum / 4 + 1
+                    else:
+                        divFill0 = divFill1 = divFill2 = itemsNum / 4
+                    
+                    #set column slices
+                    colA = divFill0
+                    colB = divFill0+divFill1
+                    colC = divFill0+divFill1+divFill2
+                        
+                #set brain lists for each column        
                 megadiv1 = []
                 megadiv2 = []
                 megadiv3 = []
                 megadiv4 = []
-
-                if divFill == 1:
-                    if itemsNum >= 1:
-                        megadiv1.append(items[0])
-                    if itemsNum >= 2:
-                        megadiv2.append(items[1])
-                    if itemsNum >= 3:
-                        megadiv3.append(items[2])
-                    if itemsNum >= 4:
-                        megadiv4.append(items[3])
+                megadivList = [megadiv1, megadiv2, megadiv3, megadiv4,]
+                
+                
+                if divFill:
+                    divIter = 0
+                    for item in items:
+                        megadivList[divIter].append(item)
+                        divIter += 1
                 else:
-                    for item in items [:divFill]:
+                    for item in items [:colA]:
                         megadiv1.append(item)
 
-                    for item in items [divFill:divFill*2]:
+                    for item in items [colA:colB]:
                         megadiv2.append(item)
 
-                    for item in items [divFill*2:divFill*3]:
+                    for item in items [colB:colC]:
                         megadiv3.append(item)
 
-                    for item in items [divFill*3:divFill*4]:
+                    for item in items [colC:]:
                         megadiv4.append(item)
-
-                if megadiv1:
-                    theNav.append('<div class="megadiv1">')
-                    theNav.append('<ul class="globalNav_lvl1">')
-                    for item in megadiv1:
-                        if item['is_folderish']:
-                            #establish brain of folder contents
-                            children = tabObj[item['id']].getFolderContents()
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
-                            theNav.append(theLine)
-                            theNav.append('<ul class="globalNav_lvl2">')
-                            for child in children:
-                                theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
+                
+                #create html to return
+                divListIter = 1
+                for divSection in megadivList:
+                    if divSection:
+                        theNav.append('<div class="megadiv' + str(divListIter) + '">')
+                        theNav.append('<ul class="globalNav_lvl1">')
+                        for item in divSection:
+                            if item['is_folderish']:
+                                #establish brain of folder contents
+                                children = tabObj[item['id']].getFolderContents()
+                                theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
                                 theNav.append(theLine)
-                            theNav.append('</ul>')
-                            theNav.append('</li>')
+                                theNav.append('<ul class="globalNav_lvl2">')
+                                for child in children:
+                                    theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
+                                    theNav.append(theLine)
+                                theNav.append('</ul>')
+                                theNav.append('</li>')
 
-                        else:
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a></li>'
-                            theNav.append(theLine)
-
-
-                        #sectionIterator+=1
-                    theNav.append('</ul>')
-                    theNav.append('</div>')
-
-                if megadiv2:
-                    theNav.append('<div class="megadiv2">')
-                    theNav.append('<ul class="globalNav_lvl1">')
-                    for item in megadiv2:
-                        if item['is_folderish']:
-                            #establish brain of folder contents
-                            children = tabObj[item['id']].getFolderContents()
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
-                            theNav.append(theLine)
-                            theNav.append('<ul class="globalNav_lvl2">')
-                            for child in children:
-                                theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
+                            else:
+                                theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a></li>'
                                 theNav.append(theLine)
-                            theNav.append('</ul>')
-                            theNav.append('</li>')
 
-                        else:
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a></li>'
-                            theNav.append(theLine)
+                        theNav.append('</ul>')
+                        theNav.append('</div>')
 
-
-                        #sectionIterator+=1
-                    theNav.append('</ul>')
-                    theNav.append('</div>')
-
-                if megadiv3:
-                    theNav.append('<div class="megadiv3">')
-                    theNav.append('<ul class="globalNav_lvl1">')
-                    for item in megadiv3:
-                        if item['is_folderish']:
-                            #establish brain of folder contents
-                            children = tabObj[item['id']].getFolderContents()
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
-                            theNav.append(theLine)
-                            theNav.append('<ul class="globalNav_lvl2">')
-                            for child in children:
-                                theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
-                                theNav.append(theLine)
-                            theNav.append('</ul>')
-                            theNav.append('</li>')
-
-                        else:
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a></li>'
-                            theNav.append(theLine)
-
-
-                        #sectionIterator+=1
-                    theNav.append('</ul>')
-                    theNav.append('</div>')
-
-                if megadiv4:
-                    theNav.append('<div class="megadiv4">')
-                    theNav.append('<ul class="globalNav_lvl1">')
-                    for item in megadiv4:
-                        if item['is_folderish']:
-                            #establish brain of folder contents
-                            children = tabObj[item['id']].getFolderContents()
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
-                            theNav.append(theLine)
-                            theNav.append('<ul class="globalNav_lvl2">')
-                            for child in children:
-                                theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
-                                theNav.append(theLine)
-                            theNav.append('</ul>')
-                            theNav.append('</li>')
-
-                        else:
-                            theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a></li>'
-                            theNav.append(theLine)
-
-
-                        #sectionIterator+=1
-                    theNav.append('</ul>')
-                    theNav.append('</div>')
+                    divListIter += 1
 
             return theNav
 
         else:
             #item is not container return False
             return False
-

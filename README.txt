@@ -4,6 +4,13 @@ Introduction
 collective.megadrop integrates a dropdown menu that presents primary and secondary navigation
 in the Plone global navigation.
 
+1.0dev4
+
+Updates
+
+    * Trimmed up viewlets.py and added further notation
+    * Four column layout preserved when column math results in remainder
+
 1.0dev3
 
 Updates
