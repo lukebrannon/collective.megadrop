@@ -30,13 +30,19 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
         if IFolderish.providedBy(tabObj):
             #return brain of tabObj contents
             results = tabObj.getFolderContents()
+            
+            
+            #print utils.getUserFriendlyTypes(results)
+                
             items = []
 
             #borrowed from navigation.py
             portal_props = getToolByName(self, 'portal_properties')
             navtree_properties = getattr(portal_props, 'navtree_properties')
             blacklist = navtree_properties.getProperty('metaTypesNotToList', ())
-
+            
+            
+            
             for result in results:
                 #if result.portal_type in view_action_types:
                 if result.portal_type not in blacklist:
@@ -111,8 +117,9 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                                 theNav.append(theLine)
                                 theNav.append('<ul class="globalNav_lvl2">')
                                 for child in children:
-                                    theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
-                                    theNav.append(theLine)
+                                    if child.portal_type not in blacklist:
+                                        theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
+                                        theNav.append(theLine)
                                 theNav.append('</ul>')
                                 theNav.append('</li>')
 

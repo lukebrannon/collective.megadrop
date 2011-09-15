@@ -5,6 +5,7 @@ $(document).ready(function()
   $("#portal-globalnav a").click(
         function(){
         var className = "." + $(this).attr('id');
+        var tabName = "#" + $(this).parent().parent().attr('id');
 
 
 
@@ -17,5 +18,13 @@ $(document).ready(function()
   $('.megatrack').removeClass('megatrack');
 
   $(className).slideDown(600).removeClass('megahide').addClass('megatrack');}
+  
+  //remove megaselect class when closing tabs and add to tab that is active
+  if ($(tabName).hasClass('megaselect')) {
+  $('.megaselect').removeClass('megaselect');
+  } else {
+  $('.megaselect').removeClass('megaselect');
+  $(tabName).addClass('megaselect');}
+  
   });
 });
