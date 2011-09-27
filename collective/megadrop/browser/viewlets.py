@@ -41,11 +41,13 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             navtree_properties = getattr(portal_props, 'navtree_properties')
             blacklist = navtree_properties.getProperty('metaTypesNotToList', ())
             
-            
+            catalog = getToolByName(self, 'portal_catalog')
             
             for result in results:
+                result_rid = result.getRID()
+                indexed_default_result_page = catalog._catalog.getIndex("is_default_page").getEntryForObject(result_rid, default=[])
                 #if result.portal_type in view_action_types:
-                if result.portal_type not in blacklist:
+                if result.portal_type not in blacklist and not indexed_default_result_page and not result['exclude_from_nav']:
                     items.append(result)
 
             #set theNav list
@@ -105,21 +107,33 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                 
                 #create html to return
                 divListIter = 1
+                
+                #ptool = getToolByName(self, 'plone_utils')
+                
                 for divSection in megadivList:
                     if divSection:
                         theNav.append('<div class="megadiv' + str(divListIter) + '">')
                         theNav.append('<ul class="globalNav_lvl1">')
                         for item in divSection:
                             if item['is_folderish']:
+                                
                                 #establish brain of folder contents
                                 children = tabObj[item['id']].getFolderContents()
+                                
+                                #start template
                                 theLine = '<li><a href="' + str(item.getURL()) + '">' + item['Title'] + '</a>'
                                 theNav.append(theLine)
                                 theNav.append('<ul class="globalNav_lvl2">')
                                 for child in children:
-                                    if child.portal_type not in blacklist:
+                                    #try with RID
+                                    child_rid = child.getRID()
+                                    indexed_default_page = catalog._catalog.getIndex("is_default_page").getEntryForObject(child_rid, default=[])
+                                    if child.portal_type not in blacklist and not indexed_default_page and not child['exclude_from_nav']:
                                         theLine = '<li><a href="' + str(child.getURL()) + '">' + child['Title'] + '</a></li>'
                                         theNav.append(theLine)
+                                
+                                
+                                
                                 theNav.append('</ul>')
                                 theNav.append('</li>')
 
