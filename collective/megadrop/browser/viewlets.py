@@ -64,10 +64,10 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                         if itemsRdr == 1:
                             divFill0 = itemsNum / 4 + 1
                             divFill1 = divFill2 = itemsNum / 4
-                        if itemsRdr == 2:
+                        elif itemsRdr == 2:
                             divFill0= divFill1 = itemsNum / 4 + 1
                             divFill2 = itemsNum / 4
-                        if itemsRdr == 3:
+                        elif itemsRdr == 3:
                             divFill0 = divFill1 = divFill2 = itemsNum / 4 + 1
 
                         #note: if remainder: divFill = itemsNum / 4 + 1
