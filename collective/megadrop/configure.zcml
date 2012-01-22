@@ -1,12 +1,15 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.megadrop">
 
     <includeDependencies package="." />
-
+    <grok:grok package="." />
+    
+    
     <include package=".browser" />
-
+    
     <include file="skins.zcml" />
 
     <genericsetup:registerProfile
