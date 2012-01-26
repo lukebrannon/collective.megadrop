@@ -4,6 +4,19 @@ Introduction
 collective.megadrop integrates a dropdown menu that presents primary and secondary navigation
 in the Plone global navigation.
 
+1.0dev5
+
+Updates
+    
+    * Added IRichTextMegaDrop interface to mark folderish content for custom
+      RichText dropdown.
+    * Added base control panel for future development.
+    
+To Do
+
+    * Create method to mark folderish content with IRichTextMegaDrop.
+    * Create tabbed interface to edit custom RichText fields in control panel.
+
 1.0dev4
 
 Updates
