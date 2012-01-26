@@ -24,5 +24,12 @@
         class=".viewlets.MegaDropGlobalSectionsViewlet"
         permission="zope2.View"
         />
+    
+    <browser:page
+        name="megadrop-settings"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.MegaDropSettingsControlPanel"
+        permission="cmf.ManagePortal"
+        />
 
 </configure>

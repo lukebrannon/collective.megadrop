@@ -11,7 +11,7 @@
     <include package=".browser" />
     
     <include file="skins.zcml" />
-
+    
     <genericsetup:registerProfile
       name="default"
       title="collective.megadrop"

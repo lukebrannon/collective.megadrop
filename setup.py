@@ -27,8 +27,7 @@ setup(name='collective.megadrop',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.z3cform',
-          'plone.directives.form',
+          'plone.app.registry',
       ],
       extras_require={
         'tests': ['collective.testcaselayer',]
