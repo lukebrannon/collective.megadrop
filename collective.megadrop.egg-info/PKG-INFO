@@ -1,0 +1,78 @@
+Metadata-Version: 1.0
+Name: collective.megadrop
+Version: 1.0dev5
+Summary: Integrates mega dropdown menu with Plone global navigation.
+Home-page: http://svn.plone.org/svn/collective/
+Author: Luke Brannon
+Author-email: luke@laplone.org
+License: GPL
+Description: Introduction
+        ============
+        
+        collective.megadrop integrates a dropdown menu that presents primary and secondary navigation
+        in the Plone global navigation.
+        
+        1.0dev5
+        
+        Updates
+            
+            * Added IRichTextMegaDrop interface to mark folderish content for custom
+              RichText dropdown.
+            * Added base control panel for future development.
+            
+        To Do
+        
+            * Create method to mark folderish content with IRichTextMegaDrop.
+            * Create tabbed interface to edit custom RichText fields in control panel.
+        
+        1.0dev4
+        
+        Updates
+        
+            * Trimmed up viewlets.py and added further notation
+            * Four column layout preserved when column math results in remainder
+        
+        1.0dev3
+        
+        Updates
+        
+            * Fixed column slicing to include all results
+        
+        Known Issues
+        
+            * Template needs conditional to prevent drop down of non-folderish tab types.
+            * CSS needs tweaking for sub-page display highlighting.
+        
+        1.0dev2
+        
+        Updates
+        
+            * jquery.megadrop.js correctly toggles dropdown.  When javascript is disabled global navigation
+                tabs take you to landing page for each tab.
+            * Pulls viewable types from navigation preferences
+            * Megadrop dropdown menu is divided into 4 columns.
+        
+        Known Issues
+        
+            * Some items not listing when greater than 5 items in container.
+        
+        1.0dev1
+        
+        Known Issues
+        
+            * Currently jquery.megadrop.js only toggles the megahide class on and off.  It should allow
+                navigation with mouse and keyboard of revealed list structure.
+            * megadrop.css is minimal, displaying subtree <ul> structure in block format.
+            * After displaying hidden divs, the <h2>'s in tab structure lose inline styling.
+        
+        Changelog
+        =========
+        
+        1.0b1 (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python

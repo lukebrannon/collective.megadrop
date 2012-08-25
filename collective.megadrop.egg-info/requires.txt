@@ -1,0 +1,10 @@
+setuptools
+plone.app.registry
+plone.behavior
+plone.directives.form
+zope.schema
+zope.interface
+zope.component
+
+[tests]
+collective.testcaselayer
