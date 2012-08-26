@@ -6,11 +6,17 @@
 
     <includeDependencies package="." />
     <grok:grok package="." />
-    
-    
+     
     <include package=".browser" />
     
     <include file="skins.zcml" />
+    
+    <include package="plone.app.registry" />
+    
+    <permission
+        id="megadrop.setTabs"
+        title="Megadrop: Set Tabs"
+        />
     
     <genericsetup:registerProfile
       name="default"

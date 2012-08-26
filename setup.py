@@ -28,6 +28,11 @@ setup(name='collective.megadrop',
       install_requires=[
           'setuptools',
           'plone.app.registry',
+          'plone.behavior',
+          'plone.directives.form',
+          'zope.schema',
+          'zope.interface',
+          'zope.component',
       ],
       extras_require={
         'tests': ['collective.testcaselayer',]

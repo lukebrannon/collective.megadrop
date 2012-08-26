@@ -6,6 +6,7 @@ from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from Products.CMFCore.utils import getToolByName
 
 from Products.CMFCore.interfaces import IFolderish
+from collective.megadrop.browser.interfaces import IRichTextMegaDrop 
 from zope.app.component.hooks import getSite
 
 class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
@@ -24,7 +25,16 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
 
         return site
 
-
+    def isCustomTab(self, tabObj):
+        #check to see if tabObj is a megafolder
+        if IRichTextMegaDrop.providedBy(tabObj):
+            #check if custom content is enabled
+            return True
+        else:
+            #no body set, revert to default behavior
+            return False
+    
+    
     def sectionQuery(self, tabObj):
         #check to make sure tabObj is a container
         if IFolderish.providedBy(tabObj):

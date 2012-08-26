@@ -82,7 +82,12 @@ position: relative;
 left: 10px;
 }
 
-
+#portal-globalnav li #managetab a {
+background-color: transparent;
+float: right;
+color: white;
+border-right: none;
+}
 /*******************
 * megadrop positioning
 *******************/

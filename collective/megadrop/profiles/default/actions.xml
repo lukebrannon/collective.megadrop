@@ -1,9 +1,21 @@
 <?xml version="1.0"?>
 <object name="portal_actions" meta_type="Plone Actions Tool"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <object name="portal_tabs" meta_type="CMF Action Category">
-  <object name="index_html" meta_type="CMF Action" i18n:domain="plone">
-   <property name="visible">False</property>
-  </object>
-</object>
+    <object name="portal_tabs" meta_type="CMF Action Category">
+        <object name="index_html" meta_type="CMF Action" i18n:domain="plone">
+            <property name="visible">False</property>
+        </object>
+    </object>
+    <action-provider name="portal_actions">
+        <action title="Customize Tab Content" action_id="enable_custom_tab" category="object_buttons"
+            condition_expr="python:here.restrictedTraverse('@@plone_interface_info').provides('Products.CMFCore.interfaces.IFolderish') and here.aq_parent.restrictedTraverse('@@plone_interface_info').provides('Products.CMFCore.interfaces.ISiteRoot') and not here.restrictedTraverse('@@plone_interface_info').provides('collective.megadrop.browser.interfaces.IRichTextMegaDrop')"
+            url_expr="string:${object_url}/@@md_custom_tab" visible="True">
+        </action>
+
+        <action title="Remove Tab Content" action_id="disable_custom_tab" category="object_buttons"
+            condition_expr="python:here.restrictedTraverse('@@plone_interface_info').provides('collective.megadrop.browser.interfaces.IRichTextMegaDrop')"
+            url_expr="string:${object_url}/@@md_custom_tab" visible="True">
+        </action>
+    </action-provider>
+
 </object>
