@@ -33,6 +33,11 @@ setup(name='collective.megadrop',
           'zope.schema',
           'zope.interface',
           'zope.component',
+          'lxml', 
+          'plone.app.blocks', 
+          'plone.app.textfield',
+          'plone.app.tiles',
+          'plone.tiles',
       ],
       extras_require={
         'tests': ['collective.testcaselayer',]

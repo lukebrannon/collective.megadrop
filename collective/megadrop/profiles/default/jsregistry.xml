@@ -9,6 +9,14 @@
              id="jquery.megadrop.js"
              inline="False"/>
 
+    <javascript cacheable="True"
+             compression="safe"
+             cookable="True"
+             enabled="True"
+             expression="python:object.portal_membership.checkPermission('Modify portal content', object)"
+             id="tiles.megadrop.js"
+             inline="False"/>
+
   <!-- ##/code-section jsregistry.xml -->
 
 </object>

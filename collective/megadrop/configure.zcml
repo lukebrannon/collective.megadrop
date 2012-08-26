@@ -18,6 +18,18 @@
         title="Megadrop: Set Tabs"
         />
     
+    <plone:tile
+      name="megadrop.tiles.richtext"
+      title="Megadrop Rich Text Tile"
+      description="A tile containing rich text"
+      add_permission="cmf.ModifyPortalContent"
+      schema=".tile.IRichTextTileData"
+      class=".tile.RichTextTile"
+      permission="zope2.View"
+      for="*"
+      />
+    
+    
     <genericsetup:registerProfile
       name="default"
       title="collective.megadrop"
