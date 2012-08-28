@@ -27,4 +27,12 @@ $(document).ready(function()
   $(tabName).addClass('megaselect');}
   
   });
+  
+  $("#portal-globalnav #managetab a").click(
+        //function(){
+        //var currentURL = $(location).attr('href');
+        //$('.megatrack').load('/ .megatrack');
+   function(){
+   alert("something clicked me");     
+  });
 });

@@ -24,12 +24,13 @@
                             <div id="managetab" tal:condition="python:context.portal_membership.checkPermission('Megadrop: Set Tabs', context)">
                                 <a href="" tal:attributes="href string:${tabObj/absolute_url}/@@md_custom_tab" tal:condition="python:not view.isCustomTab(tabObj)">Customize Tab</a>
                                 <a href="" tal:attributes="href string:${tabObj/absolute_url}/@@md_custom_tab" tal:condition="python:view.isCustomTab(tabObj)">Remove Custom Tab</a>
+                                <div class="visualClear" />
                             </div>
                         </tal:manage>
 
                         <tal:customTab tal:condition="python:view.isCustomTab(tabObj)">
                             <div id="megafolder">
-                                <div tal:attributes="data-tile string:${context/absolute_url}/@@megadrop.tiles.richtext/enter-tab-content" />
+                                <div tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
                             </div>
                         </tal:customTab>
                          

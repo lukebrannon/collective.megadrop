@@ -11,6 +11,7 @@ collective.megadrop.egg-info/requires.txt
 collective.megadrop.egg-info/top_level.txt
 collective/megadrop/__init__.py
 collective/megadrop/tests.py
+collective/megadrop/tile.py
 collective/megadrop/utils.py
 collective/megadrop/browser/__init__.py
 collective/megadrop/browser/controlpanel.py

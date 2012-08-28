@@ -18,11 +18,6 @@ class IRichTextMegaDrop(Interface):
     """Marker interface used to trigger RichText 
        MegaDrop menu.
     """
-    mdTabContent = RichText(
-        title=_(u"Tab Content"),
-        description=_(u"Enter content to display in your megadrop tab"),
-        required=False,
-        default=u'',)
 
 class IMegaDropSettings(Interface):
     """Global Megadrop Settings

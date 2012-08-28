@@ -5,6 +5,11 @@ plone.directives.form
 zope.schema
 zope.interface
 zope.component
+lxml
+plone.app.blocks
+plone.app.textfield
+plone.app.tiles
+plone.tiles
 
 [tests]
 collective.testcaselayer
