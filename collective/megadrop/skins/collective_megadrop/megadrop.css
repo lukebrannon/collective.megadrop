@@ -87,6 +87,10 @@ background-color: transparent;
 float: right;
 color: white;
 border-right: none;
+display: inline-block;
+min-width: None;
+padding: 0.5em 0.5em;
+white-space: normal;
 }
 
 /*******************

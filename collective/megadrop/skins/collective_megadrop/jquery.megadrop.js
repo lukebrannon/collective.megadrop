@@ -1,3 +1,5 @@
+
+
 $(document).ready(function()
 {
   //hide the all of the element with class msg_body
@@ -27,12 +29,10 @@ $(document).ready(function()
   $(tabName).addClass('megaselect');}
   
   });
+  //ajax necessary to reload tab content on the fly
+  //$("body").delegate("#portal-globalnav li #managetab a", "click", function() {
+  //});
   
-  $("#portal-globalnav #managetab a").click(
-        //function(){
-        //var currentURL = $(location).attr('href');
-        //$('.megatrack').load('/ .megatrack');
-   function(){
-   alert("something clicked me");     
-  });
 });
+
+
