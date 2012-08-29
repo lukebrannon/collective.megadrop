@@ -30,7 +30,7 @@
 
                         <tal:customTab tal:condition="python:view.isCustomTab(tabObj)">
                             <div id="megafolder">
-                                <div tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
+                                <div id="megaCustomTile" tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
                             </div>
                         </tal:customTab>
                          

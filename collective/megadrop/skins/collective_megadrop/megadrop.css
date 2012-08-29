@@ -125,3 +125,7 @@ position: ;
 .tile-editable:hover .tile-edit-link {
     display: block !important;
 }
+
+#megaCustomTile {
+background-color: White;
+}
