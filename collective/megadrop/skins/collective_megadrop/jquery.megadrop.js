@@ -31,6 +31,7 @@ $(document).ready(function()
   });
   //ajax necessary to reload tab content on the fly
   //$("body").delegate("#portal-globalnav li #managetab a", "click", function() {
+  //      location.reload();
   //});
   
 });

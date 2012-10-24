@@ -9,6 +9,10 @@ from Products.CMFCore.interfaces import IFolderish
 from collective.megadrop.browser.interfaces import IRichTextMegaDrop 
 from zope.app.component.hooks import getSite
 
+from zope.interface import Interface
+from zope.component import getMultiAdapter
+from plone.tiles.interfaces import ITileDataManager
+
 class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
     """A custom version of the global navigation viewlet that reveals two levels of structure
        in a single drop down drawer.
@@ -25,15 +29,39 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
 
         return site
 
-    def isCustomTab(self, tabObj):
-        #check to see if tabObj is a megafolder
-        if IRichTextMegaDrop.providedBy(tabObj):
-            #check if custom content is enabled
-            return True
-        else:
-            #no body set, revert to default behavior
-            return False
+    #def isCustomTab(self, tabObj):
+    #    #check to see if tabObj is a megafolder
+    #    if IRichTextMegaDrop.providedBy(tabObj):
+    #        #check if custom content is enabled
+    #        return True
+    #    else:
+    #        #no body set, revert to default behavior
+    #        return False
     
+    def whichTabMode(self, tabObj):
+        #check which type of custom tab this is
+        tile = getMultiAdapter((tabObj, self.request), name=u"megadrop.tiles.configlet")
+        
+        #for attr in dir(tile):
+        #    print "tile.%s = %s" % (attr, getattr(tile, attr))
+        
+        if tile.data['tab_mode']:
+            tab_mode = tile.data['tab_mode']
+        else:
+            tab_mode = 'default'
+        
+        return tab_mode
+        
+    def setTabmode(self, tabObj, mode):
+        #set display mode of tab
+        tile = getMultiAdapter((tabObj, self.request), name=u"megadrop.tiles.configlet")
+        
+        dataManager = ITileDataManager(tile)
+        
+        dataManager.set({'tab_mode':'mode',})
+        
+        return True
+        
     
     def sectionQuery(self, tabObj):
         #check to make sure tabObj is a container

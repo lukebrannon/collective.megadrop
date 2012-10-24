@@ -10,9 +10,9 @@
       name="MegaDrop"
       />
 
-  <interface
+  <!--<interface
       interface=".interfaces.IRichTextMegaDrop"
-      />
+      />-->
 
     <!-- Zope 3 browser resources -->
     <!-- The cutomized personalpreferences -->

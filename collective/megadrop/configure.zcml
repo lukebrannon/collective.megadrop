@@ -24,9 +24,20 @@
       title="Megadrop Rich Text Tile"
       description="A tile containing rich text"
       add_permission="cmf.ModifyPortalContent"
-      schema=".tile.IRichTextTileData"
-      class=".tile.RichTextTile"
+      schema=".tile.IMegaRichTextTile"
+      class=".tile.MegaRichTextTile"
       permission="zope2.View"
+      for="*"
+      />
+
+    <plone:tile
+      name="megadrop.tiles.configlet"
+      title="Megadrop Configlet Tile"
+      description="A tile containing tab mode form"
+      add_permission="megadrop.setTabs"
+      schema=".tile.IMegaConfiglet"
+      class=".tile.MegaConfiglet"
+      permission="megadrop.setTabs"
       for="*"
       />
     

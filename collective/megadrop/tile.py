@@ -10,6 +10,11 @@ class IRichTextTileData(Interface):
 
     text = RichText(title=u'Text')
 
+class IMegaConfiglet(Interface):
+    
+    tab_mode =  Text(title=u"Tab Mode")
+    
+
 
 class RichTextTile(tiles.PersistentTile):
 
@@ -20,3 +25,11 @@ class RichTextTile(tiles.PersistentTile):
             if transformer is not None:
                 text = transformer(self.data['text'], 'text/x-html-safe')
         return '<html><body>%s</body></html>' % text
+        
+class MegaConfiglet(tiles.PersistentTile):
+
+    def __call__(self):
+        tab_mode = 'default'
+        if self.data['tab_mode']:
+            tab_mode = self.data['tab_mode']
+        return tab_mode

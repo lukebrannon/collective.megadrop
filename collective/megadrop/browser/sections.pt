@@ -21,22 +21,80 @@
                 <div id="#" class="#" tal:attributes="class string:megadrop-${tid} megahide megadrop">
                     <tal:outer tal:define="site view/getPortalRoot; tabObj python:site[tid]">
                         <tal:manage>
-                            <div id="managetab" tal:condition="python:context.portal_membership.checkPermission('Megadrop: Set Tabs', context)">
+                            <!--<div id="managetab" tal:condition="python:context.portal_membership.checkPermission('Megadrop: Set Tabs', context)">
                                 <a href="" tal:attributes="href string:${tabObj/absolute_url}/@@md_custom_tab" tal:condition="python:not view.isCustomTab(tabObj)">Customize Tab</a>
                                 <a href="" tal:attributes="href string:${tabObj/absolute_url}/@@md_custom_tab" tal:condition="python:view.isCustomTab(tabObj)">Remove Custom Tab</a>
                                 <div class="visualClear" />
-                            </div>
+                            </div>-->
+                            <form name="managetabs">
+                                <select>
+                                    <option value="default">Default</option>
+                                    <option value="customLeft">Custom Left</option>
+                                    <option value="customRight">Custom Right</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </form>
                         </tal:manage>
 
-                        <tal:customTab tal:condition="python:view.isCustomTab(tabObj)">
+                        
+                        <tal:customTab tal:define="tabMode python:view.whichTabMode(tabObj)">
+                        
+                            <div id="tab-default" tal:condition="python: tabMode =='default'">
+                                
+                                <div id="megaListing" tal:repeat="items python:view.sectionQuery(tabObj)">
+                                    <span tal:replace="structure items" />
+                                </div>
+                                
+                            </div>
+                            
+                            <div id="tab-customLeft" tal:condition="python: tabMode =='customLeft'">
+                                
+                                <div id="megaCustomTile" tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
+                                
+                                <div id="megaListing" tal:repeat="items python:view.sectionQuery(tabObj)">
+                                    <span tal:replace="structure items" />
+                                </div>
+                            
+                            </div>
+                            
+                            <div id="tab-customRight" tal:condition="python: tabMode =='customRight'">
+                                
+                                <div id="megaListing" tal:repeat="items python:view.sectionQuery(tabObj)">
+                                    <span tal:replace="structure items" />
+                                </div>
+                                
+                                <div id="megaCustomTile" tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
+                            
+                            </div>
+                            
+                            <div id="tab-custom" tal:condition="python: tabMode =='custom'">
+                                
+                                <div id="megaCustomTile" tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
+                            
+                            </div>
+                        
+                        </tal:customTab>
+                        
+                        
+                        
+                        
+                        <!-- <tal:customTab tal:condition="python:view.isCustomTab(tabObj)">
                             <div id="megafolder">
                                 <div id="megaCustomTile" tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
                             </div>
-                        </tal:customTab>
+                            
+                            <tal:testing>
+                                <span tal:define="tabMode python:view.whichTabMode(tabObj)">Tab mode is: <b tal:content="string: $tabMode"></b></span>
+                            </tal:testing>
+                        </tal:customTab>  -->
                          
-                        <tal:default tal:condition="python:not view.isCustomTab(tabObj)" tal:repeat="items python:view.sectionQuery(tabObj)">
+                        <!-- <tal:default tal:condition="python:not view.isCustomTab(tabObj)" tal:repeat="items python:view.sectionQuery(tabObj)">
                             <span tal:replace="structure items" />
-                        </tal:default>
+                        </tal:default> -->
+                        
+                        <!--<tal:testing>
+                            <span tal:define="tabMode python:view.whichTabMode(tabObj)">Tab mode is: <b tal:content="string: $tabMode"></b></span>
+                        </tal:testing> -->
                     </tal:outer>
 
                 </div>
