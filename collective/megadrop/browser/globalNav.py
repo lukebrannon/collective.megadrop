@@ -27,15 +27,6 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
         site = getSite()
 
         return site
-
-    #def isCustomTab(self, tabObj):
-    #    #check to see if tabObj is a megafolder
-    #    if IRichTextMegaDrop.providedBy(tabObj):
-    #        #check if custom content is enabled
-    #        return True
-    #    else:
-    #        #no body set, revert to default behavior
-    #        return False
     
     def whichTabMode(self, tabObj):
         #check which type of custom tab this is
