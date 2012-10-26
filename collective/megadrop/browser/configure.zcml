@@ -10,26 +10,14 @@
       name="MegaDrop"
       />
 
-  <!--<interface
-      interface=".interfaces.IRichTextMegaDrop"
-      />-->
-
     <!-- Zope 3 browser resources -->
-    <!-- The cutomized personalpreferences -->
     <browser:viewlet
         name="plone.global_sections"
         for="*"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         layer=".interfaces.IMegaDropInstalled"
-        class=".viewlets.MegaDropGlobalSectionsViewlet"
+        class=".globalNav.MegaDropGlobalSectionsViewlet"
         permission="zope2.View"
-        />
-    
-    <browser:page
-        name="megadrop-settings"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class=".controlpanel.MegaDropSettingsControlPanel"
-        permission="cmf.ManagePortal"
         />
 
 </configure>

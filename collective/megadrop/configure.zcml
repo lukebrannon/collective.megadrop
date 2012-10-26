@@ -12,8 +12,6 @@
     
     <include file="skins.zcml" />
     
-    <include package="plone.app.registry" />
-    
     <permission
         id="megadrop.setTabs"
         title="Megadrop: Set Tabs"
@@ -24,7 +22,7 @@
       title="Megadrop Rich Text Tile"
       description="A tile containing rich text"
       add_permission="cmf.ModifyPortalContent"
-      schema=".tile.IMegaRichTextTile"
+      schema=".tile.IMegaRichTextTileData"
       class=".tile.MegaRichTextTile"
       permission="zope2.View"
       for="*"

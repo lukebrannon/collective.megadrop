@@ -1,5 +1,3 @@
-
-
 $(document).ready(function()
 {
   //hide the all of the element with class msg_body

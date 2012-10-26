@@ -75,26 +75,6 @@
                         
                         </tal:customTab>
                         
-                        
-                        
-                        
-                        <!-- <tal:customTab tal:condition="python:view.isCustomTab(tabObj)">
-                            <div id="megafolder">
-                                <div id="megaCustomTile" tal:attributes="data-tile string:${tabObj/absolute_url}/@@megadrop.tiles.richtext/custom-tab" />
-                            </div>
-                            
-                            <tal:testing>
-                                <span tal:define="tabMode python:view.whichTabMode(tabObj)">Tab mode is: <b tal:content="string: $tabMode"></b></span>
-                            </tal:testing>
-                        </tal:customTab>  -->
-                         
-                        <!-- <tal:default tal:condition="python:not view.isCustomTab(tabObj)" tal:repeat="items python:view.sectionQuery(tabObj)">
-                            <span tal:replace="structure items" />
-                        </tal:default> -->
-                        
-                        <!--<tal:testing>
-                            <span tal:define="tabMode python:view.whichTabMode(tabObj)">Tab mode is: <b tal:content="string: $tabMode"></b></span>
-                        </tal:testing> -->
                     </tal:outer>
 
                 </div>

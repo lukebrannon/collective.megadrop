@@ -6,7 +6,7 @@ from plone.app.textfield import RichText
 from plone.app.textfield.interfaces import ITransformer
 
 
-class IRichTextTileData(Interface):
+class IMegaRichTextTileData(Interface):
 
     text = RichText(title=u'Text')
 
@@ -16,7 +16,7 @@ class IMegaConfiglet(Interface):
     
 
 
-class RichTextTile(tiles.PersistentTile):
+class MegaRichTextTile(tiles.PersistentTile):
 
     def __call__(self):
         text = ''
