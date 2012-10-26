@@ -22,11 +22,18 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
         return self.index()
 
     index = ViewPageTemplateFile('sections.pt')
-
+    
     def getPortalRoot(self):
         site = getSite()
 
         return site
+    
+    def getTabObj(self, tid):
+        site = getSite()
+        
+        tabObj = site[tid]
+        
+        return tabObj
     
     def whichTabMode(self, tabObj):
         #check which type of custom tab this is
@@ -41,6 +48,20 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             tab_mode = 'default'
         
         return tab_mode
+
+    def getTabContent(self, tabObj):
+        tabMode = self.whichTabMode(tabObj)
+        if tabMode == 'default':
+            return self.sectionQuery(tabObj)
+        elif tabMode == 'customLeft':
+            return "<p><em>There was an error rendering your tab.</em></p>"
+        elif tabMode == 'customRight':
+            return "<p><em>There was an error rendering your tab.</em></p>"
+        elif tabMode == 'custom':
+            return "<p><em>There was an error rendering your tab.</em></p>"
+        else:
+            return "<p><em>There was an error rendering your tab.</em></p>"
+
         
     def setTabmode(self, tabObj, mode):
         #set display mode of tab
@@ -52,6 +73,9 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
         
         return True
         
+    def renderDefault(self, tabObj):
+        
+        return self.sectionQuery(tabObj)
     
     def sectionQuery(self, tabObj):
         #check to make sure tabObj is a container
