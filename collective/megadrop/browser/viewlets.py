@@ -56,35 +56,30 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
             if items:
                 itemsNum = len(items)
                 divFill = 0
-                if itemsNum <= 4:
+                if itemsNum <= 3:
                     divFill = 1
                 else:
-                    itemsRdr = itemsNum%4
+                    itemsRdr = itemsNum%3
                     if itemsRdr:
                         if itemsRdr == 1:
-                            divFill0 = itemsNum / 4 + 1
-                            divFill1 = divFill2 = itemsNum / 4
+                            divFill0 = itemsNum / 3 + 1
+                            divFill1 = divFill2 = itemsNum / 3
                         elif itemsRdr == 2:
-                            divFill0= divFill1 = itemsNum / 4 + 1
-                            divFill2 = itemsNum / 4
-                        elif itemsRdr == 3:
-                            divFill0 = divFill1 = divFill2 = itemsNum / 4 + 1
+                            divFill0= divFill1 = itemsNum / 3 + 1
+                            divFill2 = itemsNum / 3
 
-                        #note: if remainder: divFill = itemsNum / 4 + 1
                     else:
-                        divFill0 = divFill1 = divFill2 = itemsNum / 4
+                        divFill0 = divFill1 = divFill2 = itemsNum / 3
                     
                     #set column slices
                     colA = divFill0
                     colB = divFill0+divFill1
-                    colC = divFill0+divFill1+divFill2
                         
                 #set brain lists for each column        
                 megadiv1 = []
                 megadiv2 = []
                 megadiv3 = []
-                megadiv4 = []
-                megadivList = [megadiv1, megadiv2, megadiv3, megadiv4,]
+                megadivList = [megadiv1, megadiv2, megadiv3,]
                 
                 
                 if divFill:
@@ -99,11 +94,8 @@ class MegaDropGlobalSectionsViewlet(GlobalSectionsViewlet):
                     for item in items [colA:colB]:
                         megadiv2.append(item)
 
-                    for item in items [colB:colC]:
+                    for item in items [colB:]:
                         megadiv3.append(item)
-
-                    for item in items [colC:]:
-                        megadiv4.append(item)
                 
                 #create html to return
                 divListIter = 1

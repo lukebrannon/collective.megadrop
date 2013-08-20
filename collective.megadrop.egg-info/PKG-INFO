@@ -1,4 +1,4 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: collective.megadrop
 Version: 1.0dev1
 Summary: Integrates mega dropdown menu with Plone global navigation.
@@ -11,6 +11,37 @@ Description: Introduction
         
         collective.megadrop integrates a dropdown menu that presents primary and secondary navigation
         in the Plone global navigation.
+        
+        1.0dev4
+        
+        Updates
+        
+            * Trimmed up viewlets.py and added further notation
+            * Four column layout preserved when column math results in remainder
+        
+        1.0dev3
+        
+        Updates
+        
+            * Fixed column slicing to include all results
+        
+        Known Issues
+        
+            * Template needs conditional to prevent drop down of non-folderish tab types.
+            * CSS needs tweaking for sub-page display highlighting.
+        
+        1.0dev2
+        
+        Updates
+        
+            * jquery.megadrop.js correctly toggles dropdown.  When javascript is disabled global navigation
+                tabs take you to landing page for each tab.
+            * Pulls viewable types from navigation preferences
+            * Megadrop dropdown menu is divided into 4 columns.
+        
+        Known Issues
+        
+            * Some items not listing when greater than 5 items in container.
         
         1.0dev1
         
